@@ -1,3 +1,7 @@
+const nodemailer = require('nodemailer');
+const dotenv = require('dotenv');
+const handlebars = require('handlebars');
+const fs = require('fs');
 dotenv.config();
 
 // Configure Nodemailer for sending through Gmail
@@ -38,7 +42,7 @@ function sendEmail(recipient, subject, templateData) {
 }
 
 // Prepare data for the template
-const recipient = 'your_email@example.com'; 
+const recipient = 'kasseno4ka@gmail.com'; 
 const subject = 'Welcome!'; 
 const templateData = {
   greeting: 'Hello', 
