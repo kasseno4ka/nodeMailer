@@ -1,53 +1,45 @@
-## README.md
-
-# Email Sending Application using Node.js
+ **# Nodemailer Email Sender with Handlebars Templates**
 
 **Description:**
 
-This application allows you to send plain text emails using Node.js and the Nodemailer library.
-
-**Prerequisites:**
-
-- Node.js installed on your computer
-- A code editor (e.g., Visual Studio Code)
-
-**Usage:**
-
-1. **Installation:**
-
-   ```
-   npm install
-   ```
-
-2. **Running:**
-
-   ```
-   node app.js
-   ```
-
-3. **Configuration:**
-
-   - Open the `app.js` file.
-   - Replace the placeholders in the `transporter` variable with your email credentials.
-
-4. **Example Usage:**
-
-   ```javascript
-   const recipient = 'recipient@example.com';
-   const subject = 'Test Email from Node.js';
-   const message = 'This is a test email sent using Nodemailer.';
-
-   sendEmail(recipient, subject, message);
-   ```
+This Node.js application demonstrates sending personalized HTML emails using Nodemailer and Handlebars templates. It's configured to send emails through Gmail with basic error handling.
 
 **Features:**
 
-- Sending plain text emails
-- Error handling
-- Command-line support
+- **Nodemailer:** Handles email sending using Gmail's SMTP server.
+- **Handlebars:** Enables dynamic email content with templating.
+- **dotenv:** Securely stores Gmail credentials in environment variables.
+- **Error handling:** Logs errors during email sending.
+- **HTML email support:** Sends emails in HTML format for rich content.
 
+**Setup:**
 
-**Deployment:**
+1. Install dependencies:
+   ```bash
+   npm install nodemailer dotenv handlebars
+   ```
+2. Create a `.env` file in the project root and add the following:
+   ```
+   GMAIL_APP_PASSWORD=your_gmail_app_password
+   ```
+   (Replace `your_gmail_app_password` with your actual Gmail app password.)
 
-- You can deploy the application to a cloud platform, such as Heroku or AWS, for wider accessibility.
+**Usage:**
 
+1. Customize the `sendEmail` function's parameters as needed.
+2. Call the `sendEmail` function with the recipient's email, subject, and template data.
+
+**Example:**
+
+```javascript
+sendEmail('recipient@example.com', 'Welcome!', {
+  greeting: 'Hello',
+  name: 'John Doe',
+  message: 'Thank you for joining!'
+});
+```
+
+**Additional Information:**
+
+- The code uses the `templates/welcome.hbs` file for the email template.
+- Consider exploring Nodemailer's advanced features for attachments, secure connections, and different transport options.
